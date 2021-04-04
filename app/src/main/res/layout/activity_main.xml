@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/ic_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_store"
+            app:layout_constraintBottom_toBottomOf="@id/til_preco_servico"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/til_preco_servico" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_preco_servico"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/preco_do_servico"
+            app:layout_constraintStart_toEndOf="@id/ic_store"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/et_preco_servico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ImageView
+            android:id="@+id/ic_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_service"
+            app:layout_constraintBottom_toBottomOf="@id/tv_avaliacao_servico"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_avaliacao_servico" />
+
+
+        <TextView
+            android:id="@+id/tv_avaliacao_servico"
+            style="@style/Widget.Gorjeta.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/como_foi_o_servico"
+            app:layout_constraintStart_toStartOf="@id/til_preco_servico"
+            app:layout_constraintTop_toBottomOf="@id/til_preco_servico" />
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/opcao_20_porcento"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/tv_avaliacao_servico"
+            app:layout_constraintTop_toBottomOf="@id/tv_avaliacao_servico">
+
+            <RadioButton
+                android:id="@+id/opcao_20_porcento"
+                style="@style/Widget.Gorjeta.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/otimo_20" />
+
+            <RadioButton
+                android:id="@+id/opcao_18_porcento"
+                style="@style/Widget.Gorjeta.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bom_18" />
+
+            <RadioButton
+                android:id="@+id/opcao_15_porcento"
+                style="@style/Widget.Gorjeta.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ok_15" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/ic_arredondar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_arredondar"
+            app:layout_constraintBottom_toBottomOf="@id/sw_arredondar_conta"
+            app:layout_constraintEnd_toEndOf="@id/ic_service"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sw_arredondar_conta" />
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/sw_arredondar_conta"
+            style="@style/Widget.Gorjeta.CompoundButton.Switch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/arredondar_conta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/rg"
+            app:layout_constraintTop_toBottomOf="@id/rg" />
+
+        <Button
+            android:id="@+id/bt_calcular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/calcular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/sw_arredondar_conta"
+            app:layout_constraintTop_toBottomOf="@id/sw_arredondar_conta" />
+
+        <TextView
+            android:id="@+id/tv_resultado"
+            style="@style/Widget.Gorjeta.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_calcular"
+            tools:text="Gorjeta: R$10" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
